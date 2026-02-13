@@ -7,15 +7,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'StaticShield - AI-powered contextual filter for static analysis tools in CICd pipelines',
-  description: 'Value Proposition: Eliminates 80%+ false positives from static analysis tools by learning codebase context, reducing PR review time from hours to minutes while ensuring real bugs aren't missed.
-
-Target Customer: Engineering teams at 50+ person companies using automated static analysis in CICd pipelines
-
----
-Category: Developer Tools
-Target Market: Engineering teams at 50+ person companies using automated static analysis in CICd pipelines
-Source Hypothesis ID: 0fa82949-832b-4d39-9668-3f7a058709af
-Promotion Type: automatic',
+  description: 'Value Proposition: Eliminates 80%+ false positives from static analysis tools by learning codebase c',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
