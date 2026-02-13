@@ -5,7 +5,7 @@
  * Adds trialEnd field to the base subscription schema.
  */
 
-import { pgTable, text, timestamp, boolean } from 'drizzle-orm/pg-core';
+import { pgTable, text, timestamp, boolean } from 'drizzle-ormPg-core';
 import { users } from './schema';
 
 export const subscriptions = pgTable('subscriptions', {

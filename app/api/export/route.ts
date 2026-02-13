@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
-import { auth } from '@/lib/auth';
-import { db } from '@/lib/db';
-import { users } from '@/lib/schema';
+import { auth } from '@/libAuth';
+import { db } from '@/libDb';
+import { users } from '@/libSchema';
 import { eq } from 'drizzle-orm';
-import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
+import { checkRateLimit, getClientIp } from '@/libRate-limit';
 
 export const runtime = 'nodejs';
 
@@ -39,8 +39,8 @@ export async function GET(request: Request) {
 
     return new NextResponse(JSON.stringify(exportData, null, 2), {
       headers: {
-        'Content-Type': 'application/json',
-        'Content-Disposition': `attachment; filename="StaticShield - AI-powered contextual filter for static analysis tools in CI/CD pipelines-export-${new Date().toISOString().split('T')[0]}.json"`,
+        'Content-Type': 'applicationJson',
+        'Content-Disposition': `attachment; filename="StaticShield - AI-powered contextual filter for static analysis tools in CICd pipelines-export-${new Date().toISOString().split('T')[0]}.json"`,
       },
     });
   } catch (error: any) {

@@ -1,4 +1,4 @@
-export { auth as middleware } from '@/lib/auth';
+export { auth as middleware } from '@/libAuth';
 
 export const config = {
   // Protect dashboard, settings, billing, API routes (except auth + webhooks + health)

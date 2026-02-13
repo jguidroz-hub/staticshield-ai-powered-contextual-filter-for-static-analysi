@@ -17,7 +17,7 @@ export default function AnalysesPage() {
   const [newTitle, setNewTitle] = useState('');
 
   useEffect(() => {
-    fetch('/api/analyses')
+    fetch('/apiAnalyses')
       .then(r => r.json())
       .then(data => { setItems(data.items || []); setLoading(false); })
       .catch(() => setLoading(false));
@@ -25,9 +25,9 @@ export default function AnalysesPage() {
 
   const handleCreate = async () => {
     if (!newTitle.trim()) return;
-    const res = await fetch('/api/analyses', {
+    const res = await fetch('/apiAnalyses', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'applicationJson' },
       body: JSON.stringify({ title: newTitle }),
     });
     if (res.ok) {
@@ -39,7 +39,7 @@ export default function AnalysesPage() {
   };
 
   const handleDelete = async (id: string) => {
-    await fetch(`/api/analyses/${id}`, { method: 'DELETE' });
+    await fetch(`/apiAnalyses/${id}`, { method: 'DELETE' });
     setItems(prev => prev.filter(i => i.id !== id));
   };
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useAuthGuard } from '@/lib/use-auth-guard';
+import { useAuthGuard } from '@/libUse-auth-guard';
 import Link from 'next/link';
 
 interface SubscriptionData {
@@ -20,7 +20,7 @@ export default function BillingPage() {
   const [actionLoading, setActionLoading] = useState(false);
 
   useEffect(() => {
-    fetch('/api/billing/subscription')
+    fetch('/apiBilling/subscription')
       .then(r => r.json())
       .then(data => { setSub(data.subscription); setLoading(false); })
       .catch(() => setLoading(false));
@@ -29,15 +29,15 @@ export default function BillingPage() {
   const handleAction = async (action: string) => {
     setActionLoading(true);
     try {
-      const res = await fetch('/api/billing/subscription', {
+      const res = await fetch('/apiBilling/subscription', {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'applicationJson' },
         body: JSON.stringify({ action }),
       });
       const data = await res.json();
       if (!res.ok) { alert(data.error); return; }
       // Refresh subscription data
-      const fresh = await fetch('/api/billing/subscription').then(r => r.json());
+      const fresh = await fetch('/apiBilling/subscription').then(r => r.json());
       setSub(fresh.subscription);
     } catch { alert('Failed to update subscription'); }
     finally { setActionLoading(false); }
@@ -46,7 +46,7 @@ export default function BillingPage() {
   const handlePortal = async () => {
     setActionLoading(true);
     try {
-      const res = await fetch('/api/billing/portal', { method: 'POST' });
+      const res = await fetch('/apiBilling/portal', { method: 'POST' });
       const data = await res.json();
       if (data.url) window.location.href = data.url;
       else alert('Failed to open billing portal');

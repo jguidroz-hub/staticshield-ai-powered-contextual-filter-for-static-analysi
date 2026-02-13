@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
-import { db } from '@/lib/db';
-import { users } from '@/lib/schema';
+import { db } from '@/libDb';
+import { users } from '@/libSchema';
 import { eq } from 'drizzle-orm';
 import bcrypt from 'bcryptjs';
-import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
+import { checkRateLimit, getClientIp } from '@/libRate-limit';
 
 export const runtime = 'nodejs';
 
@@ -76,10 +76,10 @@ export async function POST(request: Request) {
 
     // ── Welcome Email (non-blocking) ──────────────────────
     try {
-      const { sendWelcomeEmail } = await import('@/lib/email');
+      const { sendWelcomeEmail } = await import('@/libEmail');
       await sendWelcomeEmail(cleanEmail, name?.trim());
     } catch (emailErr) {
-      console.warn('[auth/signup] Welcome email failed (signup succeeded):', emailErr);
+      console.warn('[authSignup] Welcome email failed (signup succeeded):', emailErr);
     }
 
     return NextResponse.json(
@@ -87,7 +87,7 @@ export async function POST(request: Request) {
       { status: 201 }
     );
   } catch (error: any) {
-    console.error('[auth/signup] Error:', error);
+    console.error('[authSignup] Error:', error);
     return NextResponse.json(
       { error: 'Failed to create account. Please try again.' },
       { status: 500 }

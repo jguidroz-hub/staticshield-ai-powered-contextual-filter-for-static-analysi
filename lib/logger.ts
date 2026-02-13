@@ -1,11 +1,11 @@
 /**
  * Structured JSON logger with correlation ID support.
  * 
- * In production (Vercel/Railway), logs are JSON for easy parsing.
+ * In production (VercelRailway), logs are JSON for easy parsing.
  * In development, logs are human-readable.
  * 
  * Usage:
- *   import { logger } from '@/lib/logger';
+ *   import { logger } from '@/libLogger';
  *   logger.info('User signed up', { userId: '123', email: 'a@b.com' });
  *   logger.error('Payment failed', { error: err.message, stripeId: 'sub_xxx' });
  */

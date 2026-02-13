@@ -1,6 +1,6 @@
 'use client';
 
-import { signIn } from 'next-auth/react';
+import { signIn } from 'next-authReact';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Link from 'next/link';
@@ -40,9 +40,9 @@ export default function SignUpPage() {
 
     try {
       // Create account
-      const res = await fetch('/api/auth/signup', {
+      const res = await fetch('/apiAuth/signup', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'applicationJson' },
         body: JSON.stringify({ email, password, name }),
       });
 

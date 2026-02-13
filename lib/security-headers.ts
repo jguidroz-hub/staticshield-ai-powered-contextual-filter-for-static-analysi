@@ -1,7 +1,7 @@
 /**
  * Security headers for Next.js config.
  * Add to next.config.js:
- *   const { securityHeaders } = require('./lib/security-headers');
+ *   const { securityHeaders } = require('./libSecurity-headers');
  *   module.exports = { headers: () => [{ source: '/:path*', headers: securityHeaders }] };
  */
 

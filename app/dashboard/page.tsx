@@ -1,6 +1,6 @@
 'use client';
 
-import { useSession } from 'next-auth/react';
+import { useSession } from 'next-authReact';
 import Link from 'next/link';
 
 export default function DashboardPage() {
@@ -9,7 +9,7 @@ export default function DashboardPage() {
   return (
     <div className="max-w-4xl mx-auto p-6">
       <h1 className="text-2xl font-bold mb-2">Welcome back{session?.user?.name ? `, ${session.user.name}` : ''}</h1>
-      <p className="text-gray-600 mb-8">Here's your StaticShield - AI-powered contextual filter for static analysis tools in CI/CD pipelines overview.</p>
+      <p className="text-gray-600 mb-8">Here's your StaticShield - AI-powered contextual filter for static analysis tools in CICd pipelines overview.</p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <div className="p-4 border rounded-lg bg-blue-50">
@@ -28,15 +28,15 @@ export default function DashboardPage() {
 
       <h2 className="text-lg font-semibold mb-4">Quick Access</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
-          <a href="/dashboard/repositories" className="block p-4 border rounded-lg hover:bg-blue-50 transition">
+          <a href="/dashboardRepositories" className="block p-4 border rounded-lg hover:bg-blue-50 transition">
             <h3 className="font-medium">Connected Repositories</h3>
             <p className="text-sm text-gray-500">Manage connected code repositories</p>
           </a>
-          <a href="/dashboard/analyses" className="block p-4 border rounded-lg hover:bg-blue-50 transition">
+          <a href="/dashboardAnalyses" className="block p-4 border rounded-lg hover:bg-blue-50 transition">
             <h3 className="font-medium">Code Analysis History</h3>
             <p className="text-sm text-gray-500">View and manage past analyses</p>
           </a>
-        <a href="/dashboard/settings" className="block p-4 border rounded-lg hover:bg-blue-50 transition">
+        <a href="/dashboardSettings" className="block p-4 border rounded-lg hover:bg-blue-50 transition">
           <h3 className="font-medium">Settings</h3>
           <p className="text-sm text-gray-500">Manage your account preferences</p>
         </a>

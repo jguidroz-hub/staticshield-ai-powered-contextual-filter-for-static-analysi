@@ -22,9 +22,9 @@ function ResetForm() {
       const email = new FormData(e.currentTarget).get('email') as string;
 
       try {
-        const res = await fetch('/api/auth/reset-password', {
+        const res = await fetch('/apiAuth/reset-password', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'applicationJson' },
           body: JSON.stringify({ email: email.toLowerCase().trim() }),
         });
         const data = await res.json();
@@ -81,9 +81,9 @@ function ResetForm() {
     if (password.length < 8) { setError('Password must be at least 8 characters'); setLoading(false); return; }
 
     try {
-      const res = await fetch('/api/auth/reset-password/confirm', {
+      const res = await fetch('/apiAuth/reset-passwordConfirm', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'applicationJson' },
         body: JSON.stringify({ token, password }),
       });
       const data = await res.json();

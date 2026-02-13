@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { auth } from '@/lib/auth';
-import { createCheckoutSession } from '@/lib/stripe';
+import { auth } from '@/libAuth';
+import { createCheckoutSession } from '@/libStripe';
 
 export const runtime = 'nodejs';
 
@@ -37,7 +37,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json(checkout);
   } catch (error: any) {
-    console.error('[billing/checkout] Error:', error);
+    console.error('[billingCheckout] Error:', error);
     return NextResponse.json({ error: 'Failed to create checkout session' }, { status: 500 });
   }
 }

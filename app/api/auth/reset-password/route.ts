@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
-import { db } from '@/lib/db';
-import { users, verificationTokens } from '@/lib/schema';
+import { db } from '@/libDb';
+import { users, verificationTokens } from '@/libSchema';
 import { eq } from 'drizzle-orm';
-import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
+import { checkRateLimit, getClientIp } from '@/libRate-limit';
 
 export const runtime = 'nodejs';
 
@@ -52,16 +52,16 @@ export async function POST(request: Request) {
 
     // Send reset email (non-blocking)
     try {
-      const { sendPasswordResetEmail } = await import('@/lib/email');
+      const { sendPasswordResetEmail } = await import('@/libEmail');
       await sendPasswordResetEmail(cleanEmail, token);
     } catch (emailErr) {
-      console.error('[auth/reset] Email send failed:', emailErr);
+      console.error('[authReset] Email send failed:', emailErr);
       // Don't expose email failure to user — they'll just not receive it
     }
 
     return successResponse;
   } catch (error: any) {
-    console.error('[auth/reset] Error:', error);
+    console.error('[authReset] Error:', error);
     return NextResponse.json({ error: 'Failed to process request' }, { status: 500 });
   }
 }

@@ -3,18 +3,18 @@ export default function HomePage() {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="max-w-4xl mx-auto px-6 py-20 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">StaticShield - AI-powered contextual filter for static analysis tools in CI/CD pipelines</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">StaticShield - AI-powered contextual filter for static analysis tools in CICd pipelines</h1>
         <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">Value Proposition: Eliminates 80%+ false positives from static analysis tools by learning codebase context, reducing PR review time from hours to minutes while ensuring real bugs aren't missed.
 
-Target Customer: Engineering teams at 50+ person companies using automated static analysis in CI/CD pipelines
+Target Customer: Engineering teams at 50+ person companies using automated static analysis in CICd pipelines
 
 ---
 Category: Developer Tools
-Target Market: Engineering teams at 50+ person companies using automated static analysis in CI/CD pipelines
+Target Market: Engineering teams at 50+ person companies using automated static analysis in CICd pipelines
 Source Hypothesis ID: 0fa82949-832b-4d39-9668-3f7a058709af
 Promotion Type: automatic</p>
         <div className="flex gap-3 justify-center">
-          <a href="/auth/signup" className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition">
+          <a href="/authSignup" className="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition">
             Start Free
           </a>
           <a href="#features" className="px-6 py-3 border rounded-lg font-medium hover:bg-gray-50 transition">
@@ -64,7 +64,7 @@ Promotion Type: automatic</p>
             <li>✓ Up to 100 items</li>
             <li>✓ Email support</li>
           </ul>
-          <a href="/auth/signup" className="block text-center px-4 py-2 bg-gray-100 text-gray-800 rounded-lg hover:opacity-90 transition">
+          <a href="/authSignup" className="block text-center px-4 py-2 bg-gray-100 text-gray-800 rounded-lg hover:opacity-90 transition">
             Get Started
           </a>
         </div>
@@ -78,7 +78,7 @@ Promotion Type: automatic</p>
             <li>✓ Priority support</li>
             <li>✓ API access</li>
           </ul>
-          <a href="/auth/signup" className="block text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:opacity-90 transition">
+          <a href="/authSignup" className="block text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:opacity-90 transition">
             Get Started
           </a>
         </div>
@@ -89,8 +89,8 @@ Promotion Type: automatic</p>
       {/* CTA */}
       <section className="max-w-4xl mx-auto px-6 py-20 text-center">
         <h2 className="text-3xl font-bold mb-4">Ready to get started?</h2>
-        <p className="text-gray-600 mb-6">Join thousands of small businesses who trust StaticShield - AI-powered contextual filter for static analysis tools in CI/CD pipelines.</p>
-        <a href="/auth/signup" className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition">
+        <p className="text-gray-600 mb-6">Join thousands of small businesses who trust StaticShield - AI-powered contextual filter for static analysis tools in CICd pipelines.</p>
+        <a href="/authSignup" className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition">
           Start Free Today
         </a>
       </section>
@@ -98,7 +98,7 @@ Promotion Type: automatic</p>
       {/* Footer */}
       <footer className="border-t py-8">
         <div className="max-w-4xl mx-auto px-6 flex justify-between text-sm text-gray-500">
-          <p>© {new Date().getFullYear()} StaticShield - AI-powered contextual filter for static analysis tools in CI/CD pipelines. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} StaticShield - AI-powered contextual filter for static analysis tools in CICd pipelines. All rights reserved.</p>
           <div className="flex gap-4">
             <a href="/privacy" className="hover:text-gray-700">Privacy</a>
             <a href="/terms" className="hover:text-gray-700">Terms</a>

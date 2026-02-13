@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
-import { auth } from '@/lib/auth';
-import { db } from '@/lib/db';
-import { subscriptions, users } from '@/lib/schema';
+import { auth } from '@/libAuth';
+import { db } from '@/libDb';
+import { subscriptions, users } from '@/libSchema';
 import { eq, and } from 'drizzle-orm';
-import { cancelSubscription, reactivateSubscription, changeSubscriptionPlan } from '@/lib/stripe';
+import { cancelSubscription, reactivateSubscription, changeSubscriptionPlan } from '@/libStripe';
 
 export const runtime = 'nodejs';
 
@@ -20,7 +20,7 @@ export async function GET() {
       .from(subscriptions)
       .where(and(
         eq(subscriptions.userId, session.user.id),
-        // Get the most recent active/trialing/past_due subscription
+        // Get the most recent activeTrialing/past_due subscription
       ))
       .orderBy(subscriptions.createdAt)
       .limit(1);
@@ -40,7 +40,7 @@ export async function GET() {
       },
     });
   } catch (error: any) {
-    console.error('[billing/subscription] GET error:', error);
+    console.error('[billingSubscription] GET error:', error);
     return NextResponse.json({ error: 'Failed to fetch subscription' }, { status: 500 });
   }
 }
@@ -102,7 +102,7 @@ export async function PATCH(request: Request) {
         return NextResponse.json({ error: 'Invalid action. Use: cancel, cancel_immediately, reactivate, change_plan' }, { status: 400 });
     }
   } catch (error: any) {
-    console.error('[billing/subscription] PATCH error:', error);
+    console.error('[billingSubscription] PATCH error:', error);
     return NextResponse.json({ error: error.message || 'Failed to update subscription' }, { status: 500 });
   }
 }

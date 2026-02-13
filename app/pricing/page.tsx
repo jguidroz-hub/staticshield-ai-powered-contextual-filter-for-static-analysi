@@ -1,6 +1,6 @@
 'use client';
 
-import { useSession } from 'next-auth/react';
+import { useSession } from 'next-authReact';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState, Suspense } from 'react';
 import Link from 'next/link';
@@ -46,9 +46,9 @@ function PricingContent() {
 
     setLoading(planId);
     try {
-      const res = await fetch('/api/billing/checkout', {
+      const res = await fetch('/apiBilling/checkout', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'applicationJson' },
         body: JSON.stringify({ planId }),
       });
 

@@ -14,7 +14,7 @@ function getResend(): Resend | null {
 }
 
 const FROM = process.env.RESEND_FROM_EMAIL || 'noreply@projectgreenbelt.com';
-const APP = 'StaticShield - AI-powered contextual filter for static analysis tools in CI/CD pipelines';
+const APP = 'StaticShield - AI-powered contextual filter for static analysis tools in CICd pipelines';
 const URL = process.env.NEXTAUTH_URL || process.env.NEXT_PUBLIC_URL || 'http://localhost:3000';
 
 function wrap(content: string): string {
@@ -50,7 +50,7 @@ export async function sendPaymentFailedEmail(email: string, name?: string) {
       <p style="color:#4b5563;line-height:1.6;margin:0 0 24px;">
         Please update your payment method within 7 days to keep your access.
       </p>
-      <a href="${URL}/dashboard/billing" style="display:inline-block;background:#2563eb;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;">
+      <a href="${URL}/dashboardBilling" style="display:inline-block;background:#2563eb;color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;">
         Update Payment Method →
       </a>
       <p style="color:#9ca3af;font-size:13px;margin:24px 0 0;">

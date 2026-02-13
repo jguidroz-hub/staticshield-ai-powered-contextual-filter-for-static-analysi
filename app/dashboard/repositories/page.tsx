@@ -17,7 +17,7 @@ export default function RepositoriesPage() {
   const [newTitle, setNewTitle] = useState('');
 
   useEffect(() => {
-    fetch('/api/repositories')
+    fetch('/apiRepositories')
       .then(r => r.json())
       .then(data => { setItems(data.items || []); setLoading(false); })
       .catch(() => setLoading(false));
@@ -25,9 +25,9 @@ export default function RepositoriesPage() {
 
   const handleCreate = async () => {
     if (!newTitle.trim()) return;
-    const res = await fetch('/api/repositories', {
+    const res = await fetch('/apiRepositories', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'applicationJson' },
       body: JSON.stringify({ title: newTitle }),
     });
     if (res.ok) {
@@ -39,7 +39,7 @@ export default function RepositoriesPage() {
   };
 
   const handleDelete = async (id: string) => {
-    await fetch(`/api/repositories/${id}`, { method: 'DELETE' });
+    await fetch(`/apiRepositories/${id}`, { method: 'DELETE' });
     setItems(prev => prev.filter(i => i.id !== id));
   };
 

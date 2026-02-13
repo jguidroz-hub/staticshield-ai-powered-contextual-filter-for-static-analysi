@@ -2,8 +2,8 @@
  * In-memory rate limiter for auth endpoints.
  * 
  * Production note: For multi-instance deployments, replace with Redis-based
- * rate limiting (e.g., @upstash/ratelimit). This in-memory version works
- * for single-instance Vercel/Railway deployments.
+ * rate limiting (e.g., @upstashRatelimit). This in-memory version works
+ * for single-instance VercelRailway deployments.
  * 
  * Cleans up expired entries every 5 minutes to prevent memory leaks.
  */

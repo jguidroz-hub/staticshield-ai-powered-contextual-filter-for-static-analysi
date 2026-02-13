@@ -2,8 +2,8 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const FROM = process.env.EMAIL_FROM || 'StaticShield - AI-powered contextual filter for static analysis tools in CI/CD pipelines <noreply@example.com>';
-const APP_NAME = 'StaticShield - AI-powered contextual filter for static analysis tools in CI/CD pipelines';
+const FROM = process.env.EMAIL_FROM || 'StaticShield - AI-powered contextual filter for static analysis tools in CICd pipelines <noreply@example.com>';
+const APP_NAME = 'StaticShield - AI-powered contextual filter for static analysis tools in CICd pipelines';
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 
 // ──────────────────────────────────────────────────────────

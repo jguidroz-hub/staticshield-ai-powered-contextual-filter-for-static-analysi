@@ -6,7 +6,7 @@ import {
   integer,
   index,
   uniqueIndex,
-} from 'drizzle-orm/pg-core';
+} from 'drizzle-ormPg-core';
 
 // ──────────────────────────────────────────────────────────
 // Auth (required by NextAuth + Auth Module)

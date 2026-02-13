@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
-import { auth } from '@/lib/auth';
-import { db } from '@/lib/db';
-import { users } from '@/lib/schema';
+import { auth } from '@/libAuth';
+import { db } from '@/libDb';
+import { users } from '@/libSchema';
 import { eq } from 'drizzle-orm';
-import { createPortalSession, getOrCreateCustomer } from '@/lib/stripe';
+import { createPortalSession, getOrCreateCustomer } from '@/libStripe';
 
 export const runtime = 'nodejs';
 
@@ -26,11 +26,11 @@ export async function POST() {
     }
 
     const baseUrl = process.env.NEXTAUTH_URL || process.env.NEXT_PUBLIC_URL || 'http://localhost:3000';
-    const portal = await createPortalSession(customerId, `${baseUrl}/dashboard/billing`);
+    const portal = await createPortalSession(customerId, `${baseUrl}/dashboardBilling`);
 
     return NextResponse.json(portal);
   } catch (error: any) {
-    console.error('[billing/portal] Error:', error);
+    console.error('[billingPortal] Error:', error);
     return NextResponse.json({ error: 'Failed to create billing portal' }, { status: 500 });
   }
 }

@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
-import { db } from '@/lib/db';
-import { users, verificationTokens } from '@/lib/schema';
+import { db } from '@/libDb';
+import { users, verificationTokens } from '@/libSchema';
 import { eq, and, gt } from 'drizzle-orm';
 import bcrypt from 'bcryptjs';
-import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
+import { checkRateLimit, getClientIp } from '@/libRate-limit';
 
 export const runtime = 'nodejs';
 
@@ -67,7 +67,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ message: 'Password updated successfully. You can now log in.' });
   } catch (error: any) {
-    console.error('[auth/reset-confirm] Error:', error);
+    console.error('[authReset-confirm] Error:', error);
     return NextResponse.json({ error: 'Failed to reset password' }, { status: 500 });
   }
 }

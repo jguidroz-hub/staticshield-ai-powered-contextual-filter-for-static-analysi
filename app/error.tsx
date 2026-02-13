@@ -10,7 +10,7 @@ export default function ErrorBoundary({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Log to console (picked up by Vercel/Railway logs)
+    // Log to console (picked up by VercelRailway logs)
     console.error('[ErrorBoundary]', error.message, error.digest);
   }, [error]);
 
