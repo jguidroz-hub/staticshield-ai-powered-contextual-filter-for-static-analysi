@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
-import { auth } from '@/libAuth';
-import { db } from '@/libDb';
-import { users, sessions, accounts, subscriptions } from '@/libSchema';
+import { auth } from '@/lib/auth';
+import { db } from '@/lib/db';
+import { users, sessions, accounts, subscriptions } from '@/lib/schema';
 import { eq } from 'drizzle-orm';
 
 export const runtime = 'nodejs';
@@ -37,7 +37,7 @@ export async function DELETE(request: Request) {
         // Import Stripe and cancel
         try {
           const stripe = (await import('stripe')).default;
-          const stripeClient = new Stripe(process.env.STRIPE_SECRET_KEY!);
+          const stripeClient = new stripe(process.env.STRIPE_SECRET_KEY!);
           await stripeClient.subscriptions.update(sub.id, { cancel_at_period_end: true });
         } catch (stripeErr) {
           console.warn('[delete-account] Stripe cancel failed:', stripeErr);
