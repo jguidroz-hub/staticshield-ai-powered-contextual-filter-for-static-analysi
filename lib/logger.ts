@@ -5,7 +5,7 @@
  * In development, logs are human-readable.
  * 
  * Usage:
- *   import { logger } from '@/libLogger';
+ *   import { logger } from '@/lib/logger';
  *   logger.info('User signed up', { userId: '123', email: 'a@b.com' });
  *   logger.error('Payment failed', { error: err.message, stripeId: 'sub_xxx' });
  */
