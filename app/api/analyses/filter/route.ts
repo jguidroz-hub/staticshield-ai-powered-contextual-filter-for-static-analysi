@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { auth } from '@/libAuth';
-import { db } from '@/libDb';
+import { auth } from '@/lib/auth';
+import { db } from '@/lib/db';
 import { analysesFilter } from '@/libDomain-schema';
 import { eq, desc } from 'drizzle-orm';
 import { randomUUID } from 'crypto';
