@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
           id: sub.id,
           userId,
           status: sub.status,
-          stripePriceId: sub.items?.data?.[0]?.price?.id || null,
+          stripePriceId: sub.items?.data?.[0]?.price?.id || '',
           currentPeriodStart: new Date(sub.current_period_start * 1000),
           currentPeriodEnd: new Date(sub.current_period_end * 1000),
           cancelAtPeriodEnd: sub.cancel_at_period_end || false,
@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
           target: subscriptions.id,
           set: {
             status: sub.status,
-            stripePriceId: sub.items?.data?.[0]?.price?.id || null,
+            stripePriceId: sub.items?.data?.[0]?.price?.id || '',
             currentPeriodEnd: new Date(sub.current_period_end * 1000),
             cancelAtPeriodEnd: sub.cancel_at_period_end || false,
             trialEnd: sub.trial_end ? new Date(sub.trial_end * 1000) : null,
@@ -115,7 +115,7 @@ export async function POST(request: NextRequest) {
             const [user] = await db.select().from(users).where(eq(users.id, sub.userId)).limit(1);
             if (user?.email) {
               const { sendPaymentFailedEmail } = await import('@/lib/email');
-              await sendPaymentFailedEmail(user.email, user.name || undefined);
+              await sendPaymentFailedEmail(user.email, { attemptCount: 1, updatePaymentUrl: '/dashboard/billing' });
             }
           }
         } catch (e) { console.warn('[webhook] Payment failed email error:', e); }
