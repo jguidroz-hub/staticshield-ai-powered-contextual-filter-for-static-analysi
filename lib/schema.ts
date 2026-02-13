@@ -20,9 +20,9 @@ export const users = pgTable('users', {
   hashedPassword: text('hashed_password'),
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
+  stripeCustomerId: text('stripe_customer_id'),
 }, (table) => ({
   emailIdx: uniqueIndex('users_email_idx').on(table.email),
-  stripeCustomerId: text('stripe_customer_id'),
 }));
 
 export const accounts = pgTable('accounts', {
@@ -66,7 +66,6 @@ export const verificationTokens = pgTable('verification_tokens', {
 export const subscriptions = pgTable('subscriptions', {
   id: text('id').primaryKey(), // Stripe subscription ID
   userId: text('user_id').notNull().references(() => users.id, { onDelete: 'cascade' }),
-  stripeCustomerId: text('stripe_customer_id').notNull(),
   stripePriceId: text('stripe_price_id').notNull(),
   status: text('status').notNull().default('incomplete'),
   currentPeriodStart: timestamp('current_period_start'),
