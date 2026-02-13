@@ -1,5 +1,5 @@
 import NextAuth from 'next-auth';
-import Credentials from 'next-authProvidersCredentials';
+import Credentials from 'next-auth/providers/credentials';
 import { DrizzleAdapter } from '@authDrizzle-adapter';
 import { db } from './db';
 import { users, accounts, sessions, verificationTokens } from './schema';
