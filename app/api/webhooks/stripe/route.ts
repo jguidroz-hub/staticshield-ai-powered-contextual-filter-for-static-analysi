@@ -56,6 +56,7 @@ export async function POST(request: NextRequest) {
         await db.insert(subscriptions).values({
           id: sub.id,
           userId,
+          stripeCustomerId: (sub.customer as string) || '',
           status: sub.status,
           stripePriceId: sub.items?.data?.[0]?.price?.id || '',
           currentPeriodStart: new Date(sub.current_period_start * 1000),
