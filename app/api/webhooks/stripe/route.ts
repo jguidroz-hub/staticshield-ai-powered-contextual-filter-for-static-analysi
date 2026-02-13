@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { constructWebhookEvent } from '@/libStripe';
-import { db } from '@/libDb';
-import { subscriptions, users } from '@/libSchema';
+import { constructWebhookEvent } from '@/lib/stripe';
+import { db } from '@/lib/db';
+import { subscriptions, users } from '@/lib/schema';
 import { eq } from 'drizzle-orm';
 
 export const runtime = 'nodejs';
@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
           try {
             const [user] = await db.select().from(users).where(eq(users.id, userId)).limit(1);
             if (user?.email) {
-              const { sendSubscriptionEmail } = await import('@/libEmail');
+              const { sendSubscriptionEmail } = await import('@/lib/email');
               const planName = sub.items?.data?.[0]?.price?.nickname || 'Pro';
               await sendSubscriptionEmail(user.email, planName);
             }
@@ -114,7 +114,7 @@ export async function POST(request: NextRequest) {
           if (sub) {
             const [user] = await db.select().from(users).where(eq(users.id, sub.userId)).limit(1);
             if (user?.email) {
-              const { sendPaymentFailedEmail } = await import('@/libEmail');
+              const { sendPaymentFailedEmail } = await import('@/lib/email');
               await sendPaymentFailedEmail(user.email, user.name || undefined);
             }
           }
