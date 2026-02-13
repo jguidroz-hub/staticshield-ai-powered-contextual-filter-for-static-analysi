@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
-import { auth } from '@/libAuth';
-import { db } from '@/libDb';
-import { users } from '@/libSchema';
+import { auth } from '@/lib/auth';
+import { db } from '@/lib/db';
+import { users } from '@/lib/schema';
 import { eq } from 'drizzle-orm';
-import { createPortalSession, getOrCreateCustomer } from '@/libStripe';
+import { createPortalSession, getOrCreateCustomer } from '@/lib/stripe';
 
 export const runtime = 'nodejs';
 
