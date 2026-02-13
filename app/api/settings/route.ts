@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { auth } from '@/libAuth';
-import { db } from '@/libDb';
+import { auth } from '@/lib/auth';
+import { db } from '@/lib/db';
 import { eq } from 'drizzle-orm';
 
 export const runtime = 'nodejs';
@@ -40,7 +40,7 @@ export async function PATCH(request: Request) {
       if (typeof name !== 'string' || name.length > 100) {
         return NextResponse.json({ error: 'Invalid name' }, { status: 400 });
       }
-      const { users } = await import('@/libSchema');
+      const { users } = await import('@/lib/schema');
       await db.update(users).set({ name: name.trim(), updatedAt: new Date() }).where(eq(users.id, session.user.id));
     }
 
