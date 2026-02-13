@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useAuthGuard } from '@/libUse-auth-guard';
+import { useAuthGuard } from '@/lib/use-auth-guard';
 import Link from 'next/link';
 
 interface SubscriptionData {
