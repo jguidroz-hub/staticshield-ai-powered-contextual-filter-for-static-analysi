@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
-import { auth } from '@/libAuth';
-import { db } from '@/libDb';
-import { subscriptions, users } from '@/libSchema';
+import { auth } from '@/lib/auth';
+import { db } from '@/lib/db';
+import { subscriptions, users } from '@/lib/schema';
 import { eq, and } from 'drizzle-orm';
-import { cancelSubscription, reactivateSubscription, changeSubscriptionPlan } from '@/libStripe';
+import { cancelSubscription, reactivateSubscription, changeSubscriptionPlan } from '@/lib/stripe';
 
 export const runtime = 'nodejs';
 
