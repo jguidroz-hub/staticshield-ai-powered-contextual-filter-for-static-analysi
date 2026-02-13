@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { db } from '@/libDb';
-import { users, verificationTokens } from '@/libSchema';
+import { db } from '@/lib/db';
+import { users, verificationTokens } from '@/lib/schema';
 import { eq } from 'drizzle-orm';
 import { checkRateLimit, getClientIp } from '@/libRate-limit';
 
@@ -52,7 +52,7 @@ export async function POST(request: Request) {
 
     // Send reset email (non-blocking)
     try {
-      const { sendPasswordResetEmail } = await import('@/libEmail');
+      const { sendPasswordResetEmail } = await import('@/lib/email');
       await sendPasswordResetEmail(cleanEmail, token);
     } catch (emailErr) {
       console.error('[authReset] Email send failed:', emailErr);
