@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { db } from '@/libDb';
-import { users } from '@/libSchema';
+import { db } from '@/lib/db';
+import { users } from '@/lib/schema';
 import { eq } from 'drizzle-orm';
 import bcrypt from 'bcryptjs';
 import { checkRateLimit, getClientIp } from '@/libRate-limit';
@@ -76,7 +76,7 @@ export async function POST(request: Request) {
 
     // ── Welcome Email (non-blocking) ──────────────────────
     try {
-      const { sendWelcomeEmail } = await import('@/libEmail');
+      const { sendWelcomeEmail } = await import('@/lib/email');
       await sendWelcomeEmail(cleanEmail, name?.trim());
     } catch (emailErr) {
       console.warn('[authSignup] Welcome email failed (signup succeeded):', emailErr);
