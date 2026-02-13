@@ -40,7 +40,7 @@ export default function SignUpPage() {
 
     try {
       // Create account
-      const res = await fetch('/apiAuth/signup', {
+      const res = await fetch('/apiAuthSignup', {
         method: 'POST',
         headers: { 'Content-Type': 'applicationJson' },
         body: JSON.stringify({ email, password, name }),

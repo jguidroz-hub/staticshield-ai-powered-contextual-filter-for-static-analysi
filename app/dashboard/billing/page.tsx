@@ -20,7 +20,7 @@ export default function BillingPage() {
   const [actionLoading, setActionLoading] = useState(false);
 
   useEffect(() => {
-    fetch('/apiBilling/subscription')
+    fetch('/apiBillingSubscription')
       .then(r => r.json())
       .then(data => { setSub(data.subscription); setLoading(false); })
       .catch(() => setLoading(false));
@@ -29,7 +29,7 @@ export default function BillingPage() {
   const handleAction = async (action: string) => {
     setActionLoading(true);
     try {
-      const res = await fetch('/apiBilling/subscription', {
+      const res = await fetch('/apiBillingSubscription', {
         method: 'PATCH',
         headers: { 'Content-Type': 'applicationJson' },
         body: JSON.stringify({ action }),
@@ -37,7 +37,7 @@ export default function BillingPage() {
       const data = await res.json();
       if (!res.ok) { alert(data.error); return; }
       // Refresh subscription data
-      const fresh = await fetch('/apiBilling/subscription').then(r => r.json());
+      const fresh = await fetch('/apiBillingSubscription').then(r => r.json());
       setSub(fresh.subscription);
     } catch { alert('Failed to update subscription'); }
     finally { setActionLoading(false); }
@@ -46,7 +46,7 @@ export default function BillingPage() {
   const handlePortal = async () => {
     setActionLoading(true);
     try {
-      const res = await fetch('/apiBilling/portal', { method: 'POST' });
+      const res = await fetch('/apiBillingPortal', { method: 'POST' });
       const data = await res.json();
       if (data.url) window.location.href = data.url;
       else alert('Failed to open billing portal');

@@ -46,7 +46,7 @@ function PricingContent() {
 
     setLoading(planId);
     try {
-      const res = await fetch('/apiBilling/checkout', {
+      const res = await fetch('/apiBillingCheckout', {
         method: 'POST',
         headers: { 'Content-Type': 'applicationJson' },
         body: JSON.stringify({ planId }),
