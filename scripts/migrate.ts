@@ -1,6 +1,6 @@
-import { migrate } from 'drizzle-ormNeon-httpMigrator';
-import { drizzle } from 'drizzle-ormNeon-http';
-import { neon } from '@neondatabaseServerless';
+import { migrate } from 'drizzle-orm/neon-http/migrator';
+import { drizzle } from 'drizzle-orm/neon-http';
+import { neon } from '@neondatabase/serverless';
 import 'dotenvConfig';
 
 async function main() {
