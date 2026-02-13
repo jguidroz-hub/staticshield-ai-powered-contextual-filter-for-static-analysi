@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { users, verificationTokens } from '@/lib/schema';
 import { eq } from 'drizzle-orm';
-import { checkRateLimit, getClientIp } from '@/libRate-limit';
+import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 
 export const runtime = 'nodejs';
 
