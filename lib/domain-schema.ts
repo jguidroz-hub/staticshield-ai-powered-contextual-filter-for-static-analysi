@@ -7,8 +7,8 @@ export const userSettings = pgTable('user_settings', {
   id: text('id').primaryKey(),
   userId: text('user_id').notNull().unique().references(() => users.id, { onDelete: 'cascade' }),
   timezone: text('timezone').default('UTC'),
-  emailNotifications: boolean('email_notifications').default(true),
-  weeklyDigest: boolean('weekly_digest').default(true),
+  emailNotifications: boolean('email_notifications').default('true'),
+  weeklyDigest: boolean('weekly_digest').default('true'),
   createdAt: timestamp('created_at').notNull().default(sql`now()`),
   updatedAt: timestamp('updated_at').notNull().default(sql`now()`),
 });
