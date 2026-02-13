@@ -3,7 +3,7 @@ import { db } from '@/lib/db';
 import { users, verificationTokens } from '@/lib/schema';
 import { eq, and, gt } from 'drizzle-orm';
 import bcrypt from 'bcryptjs';
-import { checkRateLimit, getClientIp } from '@/libRate-limit';
+import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 
 export const runtime = 'nodejs';
 
