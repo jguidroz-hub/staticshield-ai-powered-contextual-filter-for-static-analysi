@@ -74,6 +74,7 @@ export const subscriptions = pgTable('subscriptions', {
   trialEnd: timestamp('trial_end'),
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
+  stripeCustomerId: text('stripe_customer_id').notNull(),
 }, (table) => ({
   userIdx: index('sub_user_idx').on(table.userId),
   customerIdx: index('sub_customer_idx').on(table.stripeCustomerId),
