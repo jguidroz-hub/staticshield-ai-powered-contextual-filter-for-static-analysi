@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { auth } from '@/libAuth';
-import { createCheckoutSession } from '@/libStripe';
+import { auth } from '@/lib/auth';
+import { createCheckoutSession } from '@/lib/stripe';
 
 export const runtime = 'nodejs';
 
