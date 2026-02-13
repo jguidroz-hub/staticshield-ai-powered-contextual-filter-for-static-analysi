@@ -1,6 +1,6 @@
 'use client';
 
-import { useSession } from 'next-authReact';
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 
 export default function DashboardPage() {
