@@ -49,7 +49,7 @@ export async function checkAccess(userId: string): Promise<AccessCheck> {
     }
 
     // Determine plan from priceId
-    const priceId = sub.priceId || '';
+    const priceId = sub.stripePriceId || '';
     let plan: AccessCheck['plan'] = 'starter';
     if (priceId.includes('pro') || priceId === process.env.STRIPE_PRO_PRICE_ID) plan = 'pro';
     if (priceId.includes('enterprise') || priceId === process.env.STRIPE_ENTERPRISE_PRICE_ID) plan = 'enterprise';
