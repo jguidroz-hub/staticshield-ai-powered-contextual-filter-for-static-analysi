@@ -7,7 +7,7 @@ import { eq } from 'drizzle-orm';
 import bcrypt from 'bcryptjs';
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  adapter: DrizzleAdapter(db) as any,
+  adapter: db ? DrizzleAdapter(db) as any : undefined as any,
   providers: [
     Credentials({
       id: 'credentials',
